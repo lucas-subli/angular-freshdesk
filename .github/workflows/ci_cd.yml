@@ -19,13 +19,11 @@ jobs:
 
       - name: Build
         run: npm run build
-
-      - name: Open folder
-        run: cd dist/angular-freshdesk
       
-      - run: pwd
-      - run: ls
-      - run: npm ci
-      - run: npm publish
+      - name: Publish
+        working-directory: ./dist/angular-freshdesk
+        run: |
+          npm ci
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
