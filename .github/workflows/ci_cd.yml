@@ -14,19 +14,8 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
       
-      - name: Load node_modules
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('package-lock.json') }}
-
-      - name: Cache dist
-        uses: actions/cache@v2
-        with:
-          path: dist
-          key: dist-${{ github.sha }}
-          restore-keys: |
-            dist-
+      - name: Install dependencies
+        run: npm install
 
       - name: Build
         run: npm run build
@@ -34,13 +23,9 @@ jobs:
       - name: Open folder
         run: cd dist/angular-freshdesk
       
-      - name: Verify path
-        run: pwd && ls
-
-      - name: Npm CI
-        run: npm ci
-      
-      - name: Publish
-        run: npm publish
+      - run: pwd
+      - run: ls
+      - run: npm ci
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
