@@ -31,11 +31,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: publish to NPM
-        run: cd dist/angular-freshdesk
-        run: pwd
-        run: ls
-        run: npm ci
-        run: npm publish
+      - run: ls
+      - run: cd dist/angular-freshdesk
+      - run: pwd
+      - run: ls
+      - run: npm ci
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+
