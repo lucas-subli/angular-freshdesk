@@ -1,4 +1,4 @@
-name: Publish Package to npmjs
+name: Publish Package to NPM
 on:
   release:
     types: [created]
@@ -34,9 +34,13 @@ jobs:
       - name: Open folder
         run: cd dist/angular-freshdesk
       
-      - run: pwd
-      - run: ls
-      - run: npm ci
-      - run: npm publish
+      - name: Verify path
+        run: pwd && ls
+
+      - name: Npm CI
+        run: npm ci
+      
+      - name: Publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
