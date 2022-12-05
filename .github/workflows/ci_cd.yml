@@ -1,33 +1,19 @@
-name: CI
-
-on: [push]
-
+name: Publish Package to npmjs
+on:
+  release:
+    types: [created]
 jobs:
-  Install:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Cache node modules
-        uses: actions/cache@v2
+      - uses: actions/checkout@v3
+      # Setup .npmrc file to publish to npm
+      - name: Setup npmrc
+        uses: actions/setup-node@v3
         with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            node_modules-
-
-      - name: Install Dependencies
-        run: npm install
-
-  Build:
-    needs: install
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+      
       - name: Load node_modules
         uses: actions/cache@v2
         with:
@@ -45,36 +31,10 @@ jobs:
       - name: Build
         run: npm run build
 
-  Deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Load node_modules
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('package-lock.json') }}
-
-      - name: Load dist
-        uses: actions/cache@v2
-        with:
-          path: dist
-          key: dist-${{ github.sha }}
-
       - name: Open folder
         run: cd dist/angular-freshdesk
-
-      - name: Deploy
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-
-      - name: Finishing
-        if: steps.Deploy.outputs.type != 'none'
-        run: |
-          echo "Version changed: ${{ steps.Deploy.outputs.old-version }} => ${{ steps.Deploy.outputs.version }}"
+      
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
