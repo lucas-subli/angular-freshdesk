@@ -4,7 +4,8 @@
 [![Build Status](https://travis-ci.org/lucas-subli/angular-freshdesk.svg?branch=master)](https://travis-ci.org/lucas-subli/angular-freshdesk)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/lucas-subli/angular-freshdesk/issues)
 
-Freshdesk widget for Angular 14+ (fork of https://github.com/AlisonVilela/ngx-freshdesk-webwidget). I just updated the libs.
+Freshdesk widget for Angular 15+ (fork of https://github.com/AlisonVilela/ngx-freshdesk-webwidget). I just updated the libs.
+The lib version is supposed to track the intended angular version.
 
 ## Installation
 

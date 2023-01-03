@@ -3,7 +3,7 @@
   "compilerOptions": {
     "declaration": true,
     "module": "es2015",
-    "target": "es5",
+    "target": "ES2022",
     "baseUrl": "./src",
     "stripInternal": true,
     "experimentalDecorators": true,
@@ -16,7 +16,8 @@
       "dom"
     ],
     "skipLibCheck": true,
-    "types": []
+    "types": [],
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
