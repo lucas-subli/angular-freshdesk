@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders, Type } from '@angular/core';
+import { ModuleWithProviders, NgModule, Type } from '@angular/core';
 import { FreshdeskWebwidgetConfig } from './freshdesk-webwidget.model';
 import { FreshdeskWebwidgetService } from './freshdesk-webwidget.service';
 

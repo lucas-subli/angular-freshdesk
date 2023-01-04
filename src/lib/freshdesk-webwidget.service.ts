@@ -8,10 +8,11 @@ function getWindow(): any {
 
 @Injectable()
 export class FreshdeskWebwidgetService {
-
   constructor(private freshdeskWebwidgetConfig?: FreshdeskWebwidgetConfig) {
     if (!this.freshdeskWebwidgetConfig.widgetId) {
-      throw new Error('Missing widgetId. Please set in app config via FreshdeskWidgetProvider');
+      throw new Error(
+        'Missing widgetId. Please set in app config via FreshdeskWidgetProvider'
+      );
     }
     const window = getWindow();
 
@@ -22,29 +23,30 @@ export class FreshdeskWebwidgetService {
     script.src = `https://widget.freshworks.com/widgets/${this.freshdeskWebwidgetConfig.widgetId}.js`;
 
     window.fwSettings = {
-      'widget_id': freshdeskWebwidgetConfig.widgetId,
-      'locale': freshdeskWebwidgetConfig.locale
+      widget_id: freshdeskWebwidgetConfig.widgetId,
+      locale: freshdeskWebwidgetConfig.locale,
     };
 
-    window.FreshworksWidget || function() {
-      if ("function" != typeof window.FreshworksWidget) {
-        let n = function() {
-          n['q'].push(arguments)
-        };
-        n['q'] = [], window.FreshworksWidget = n
-      }
-    }();
+    window.FreshworksWidget ||
+      (function () {
+        if ('function' != typeof window.FreshworksWidget) {
+          let n = function () {
+            n['q'].push(arguments);
+          };
+          (n['q'] = []), (window.FreshworksWidget = n);
+        }
+      })();
 
     script.onload = function (event) {
       try {
         freshdeskWebwidgetConfig.callback(window.FreshworksWidget);
       } catch (error) {
-        console.log("error.: ", error)
+        console.log('error.: ', error);
       }
     };
 
     script.onerror = function (event) {
-      console.log("error Onerror.: ", event)
+      console.log('error Onerror.: ', event);
     };
 
     document.body.append(script);
