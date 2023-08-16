@@ -152,6 +152,10 @@ MIT © [lucas.subli](https://github.com/lucas-subli)
 
 ## Change log
 
+### v16.2.0
+
+- Upgraded for angular 16
+
 ### v0.1.0
 
 - Upgraded for angular 14/15
