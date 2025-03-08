@@ -1,6 +1,6 @@
 {
   "name": "angular-freshdesk",
-  "version": "18.1.2",
+  "version": "19.2.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
