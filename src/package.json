@@ -19,7 +19,7 @@
   },
   "peerDependencies": {
     "@angular/core": "^19.2.1",
-    "zone.js": "~0.14.4"
+    "zone.js": "~0.15.0"
   },
   "dependencies": {
     "tslib": "^2.6.2"
