@@ -1,6 +1,6 @@
 {
   "name": "angular-freshdesk",
-  "version": "19.2.1b",
+  "version": "20.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/lucas-subli/angular-freshdesk.git"
@@ -18,7 +18,7 @@
     "url": "https://github.com/lucas-subli/issues"
   },
   "peerDependencies": {
-    "@angular/core": "^19.2.1",
+    "@angular/core": "^20.0.6",
     "zone.js": "~0.15.0"
   },
   "dependencies": {
