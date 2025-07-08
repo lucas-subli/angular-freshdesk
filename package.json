@@ -1,6 +1,6 @@
 {
   "name": "angular-freshdesk",
-  "version": "19.2.1",
+  "version": "20.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,31 +24,31 @@
     "url": "https://github.com/lucas-subli/angular-freshdesk/issues"
   },
   "dependencies": {
-    "@angular/animations": "^19.2.1",
-    "@angular/common": "^19.2.1",
-    "@angular/compiler": "^19.2.1",
-    "@angular/core": "^19.2.1",
-    "@angular/forms": "^19.2.1",
-    "@angular/platform-browser": "^19.2.1",
-    "@angular/platform-browser-dynamic": "^19.2.1",
-    "@angular/router": "^19.2.1",
-    "rxjs": "~7.4.0",
+    "@angular/animations": "^20.0.6",
+    "@angular/common": "^20.0.6",
+    "@angular/compiler": "^20.0.6",
+    "@angular/core": "^20.0.6",
+    "@angular/forms": "^20.0.6",
+    "@angular/platform-browser": "^20.0.6",
+    "@angular/platform-browser-dynamic": "^20.0.6",
+    "@angular/router": "^20.0.6",
+    "rxjs": "~7.8.2",
     "tslib": "^2.6.2",
-    "zone.js": "~0.15.0"
+    "zone.js": "~0.15.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.2.1",
-    "@angular/cli": "^19.2.1",
-    "@angular/compiler-cli": "^19.2.1",
+    "@angular/build": "^20.0.5",
+    "@angular/cli": "^20.0.5",
+    "@angular/compiler-cli": "^20.0.6",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.10.0",
-    "karma": "~6.3.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage": "~2.0.3",
-    "karma-jasmine": "~4.0.0",
+    "karma": "~6.4.4",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.1",
+    "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "ng-packagr": "^19.2.0",
-    "typescript": "~5.5.4"
+    "ng-packagr": "^20.0.1",
+    "typescript": "~5.8.3"
   }
 }
